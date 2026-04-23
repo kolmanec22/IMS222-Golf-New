@@ -4,12 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Golf Round Tracker</title>
-
-  
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <style>
+    .carousel {
+      height: 300px;
+    }
+    .carousel .carousel-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
@@ -28,7 +35,6 @@
 
   <section>
     <h2>Featured Golf Courses</h2>
-
     <div class="carousel">
       <a class="carousel-item"><img src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=800"></a>
       <a class="carousel-item"><img src="https://images.unsplash.com/photo-1505842465776-3d90f616310f?q=80&w=800"></a>
@@ -57,7 +63,6 @@
 
   <section>
     <h2>More Info</h2>
-
     <ul class="collapsible">
       <li>
         <div class="collapsible-header">Why track your golf rounds?</div>
@@ -76,7 +81,6 @@
 
   <section>
     <h2>Example Rounds</h2>
-
     <table>
       <tr>
         <th>Course</th>
@@ -122,16 +126,15 @@
   <p>Golf Round Tracker | St. Louis, MO</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var carousels = document.querySelectorAll('.carousel');
-  M.Carousel.init(carousels);
-
-  var collapsibles = document.querySelectorAll('.collapsible');
-  M.Collapsible.init(collapsibles);
-});
+  document.addEventListener('DOMContentLoaded', function() {
+    var carousels = document.querySelectorAll('.carousel');
+    M.Carousel.init(carousels);
+    var collapsibles = document.querySelectorAll('.collapsible');
+    M.Collapsible.init(collapsibles);
+  });
 </script>
-
 <script src="script.js"></script>
 
 </body>
