@@ -5,8 +5,17 @@
   <title>Materialize Golf Page</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    .carousel {
+      height: 300px;
+    }
+    .carousel .carousel-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
 </head>
-
 <body class="green lighten-5">
 
   <!-- NAVBAR -->
@@ -30,9 +39,19 @@
       <p>This page uses Materialize to enhance the design of the Golf Round Tracker website.</p>
     </div>
 
+    <!-- CAROUSEL -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Featured Courses</h5>
+      <div class="carousel">
+        <a class="carousel-item"><img src="https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=800"></a>
+        <a class="carousel-item"><img src="https://images.unsplash.com/photo-1505842465776-3d90f616310f?q=80&w=800"></a>
+        <a class="carousel-item"><img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=800"></a>
+        <a class="carousel-item"><img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?q=80&w=800"></a>
+      </div>
+    </div>
+
     <!-- CARD SECTION -->
     <div class="row">
-
       <div class="col s12 m6">
         <div class="card">
           <div class="card-image">
@@ -44,7 +63,6 @@
           </div>
         </div>
       </div>
-
       <div class="col s12 m6">
         <div class="card">
           <div class="card-image">
@@ -56,7 +74,25 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- COLLAPSIBLE -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">FAQ</h5>
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">golf_course</i>Why track your golf rounds?</div>
+          <div class="collapsible-body"><span>Tracking helps you improve and remember your best rounds.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">golf_course</i>Can beginners use this?</div>
+          <div class="collapsible-body"><span>Yes! This site is designed for all skill levels.</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">golf_course</i>Future features?</div>
+          <div class="collapsible-body"><span>Course ratings, stats tracking, and sharing with friends.</span></div>
+        </li>
+      </ul>
     </div>
 
     <!-- CIRCULAR IMAGE -->
@@ -71,11 +107,12 @@
 
     <!-- VIDEO EMBED -->
     <div class="section">
-  <h5 class="center">Golf Highlight Video</h5>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/ExiuB6wicus?start=215" frameborder="0" allowfullscreen></iframe>
-  </div>
-</div>
+      <h5 class="center">Golf Highlight Video</h5>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/ExiuB6wicus?start=215" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
     <!-- EXTRA CONTENT -->
     <div class="section">
       <h5 class="green-text text-darken-3">Why Use Materialize?</h5>
@@ -96,6 +133,14 @@
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var carousels = document.querySelectorAll('.carousel');
+      M.Carousel.init(carousels);
+      var collapsibles = document.querySelectorAll('.collapsible');
+      M.Collapsible.init(collapsibles);
+    });
+  </script>
 
 </body>
 </html>
