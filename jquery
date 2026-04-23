@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golf Tracker - jQuery</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="green lighten-5">
+
+  <nav class="green darken-3">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">Golf Tracker</a>
+      <ul class="right">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="bucketlist.html">Bucket List</a></li>
+        <li><a href="materialize.html">Materialize</a></li>
+        <li><a href="jquery.html">jQuery</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="section center">
+      <h3 class="green-text text-darken-3">jQuery Interactions</h3>
+      <p>Interactive features for the Golf Round Tracker built with jQuery.</p>
+    </div>
+
+    <!-- TOGGLE -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Golf Tip of the Day</h5>
+      <p>Click to show or hide today's tip.</p>
+      <button class="btn green darken-3" id="tipBtn">Show / Hide Tip</button>
+      <p id="golf-tip" style="display:none; background:#e8f5e9; padding:12px; margin-top:10px;">
+        Keep your head still and eyes on the ball through your entire swing!
+      </p>
+    </div>
+
+    <!-- FADE -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Course Photo</h5>
+      <p>Fade the photo in and out.</p>
+      <button class="btn green darken-3" id="fadeInBtn">Fade In</button>
+      <button class="btn green darken-2" id="fadeOutBtn">Fade Out</button>
+      <br>
+      <img id="fade-image" src="https://images.unsplash.com/photo-1505842465776-3d90f616310f?q=80&w=800" style="width:100%; margin-top:12px; border-radius:8px;">
+    </div>
+
+    <!-- SLIDE -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Augusta National — Course Details</h5>
+      <p>Click to slide open course info.</p>
+      <button class="btn green darken-3" id="slideBtn">Show / Hide Info</button>
+      <div id="course-info" style="display:none; background:#f9fbe7; padding:16px; margin-top:10px; border-radius:6px;">
+        <p><strong>Location:</strong> Augusta, Georgia</p>
+        <p><strong>Par:</strong> 72</p>
+        <p><strong>Yardage:</strong> 7,475 yards</p>
+        <p><strong>Founded:</strong> 1932</p>
+      </div>
+    </div>
+
+    <!-- INPUT / APPEND -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Round Log</h5>
+      <p>Add your rounds to your log.</p>
+      <input id="round-input" type="text" placeholder="e.g. Pebble Beach — Score: 87" style="width:60%; padding:8px; margin-right:8px;">
+      <button class="btn green darken-3" id="addRoundBtn">Add Round</button>
+      <ul id="round-log"></ul>
+    </div>
+
+    <!-- DARK MODE -->
+    <div class="section">
+      <h5 class="green-text text-darken-3">Dark Mode</h5>
+      <button class="btn green darken-3" id="darkModeBtn">Toggle Dark Mode</button>
+    </div>
+
+  </div>
+
+  <footer class="page-footer green darken-3">
+    <div class="container center">
+      <p>Golf Round Tracker | St. Louis, MO</p>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $("#tipBtn").click(function() {
+        $("#golf-tip").toggle();
+      });
+
+      $("#fadeInBtn").click(function() {
+        $("#fade-image").fadeIn(600);
+      });
+
+      $("#fadeOutBtn").click(function() {
+        $("#fade-image").fadeOut(600);
+      });
+
+      $("#slideBtn").click(function() {
+        $("#course-info").slideToggle(400);
+      });
+
+      $("#addRoundBtn").click(function() {
+        var entry = $("#round-input").val().trim();
+        if (entry !== "") {
+          $("#round-log").append("<li>" + entry + "</li>");
+          $("#round-input").val("");
+        }
+      });
+
+      $("#round-input").keypress(function(e) {
+        if (e.which === 13) $("#addRoundBtn").click();
+      });
+
+      $("#darkModeBtn").click(function() {
+        $("body").toggleClass("dark");
+      });
+
+    });
+  </script>
+
+</body>
+</html>
